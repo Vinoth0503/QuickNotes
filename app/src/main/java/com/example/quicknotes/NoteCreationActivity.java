@@ -10,15 +10,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class NoteCreationActivity extends AppCompatActivity {
-    private EditText noteTitleInput;
-    private EditText noteContentInput;
+    private EditText noteTitleInput, noteContentInput;
     private Spinner categorySelection;
     private Button saveNoteButton, cancelButton;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +29,16 @@ public class NoteCreationActivity extends AppCompatActivity {
         saveNoteButton = findViewById(R.id.saveNoteButton);
         cancelButton = findViewById(R.id.cancelButton);
 
-        // Populate the category selection dropdown
-        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, Arrays.asList("Work", "Personal", "Ideas"));
-        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        categorySelection.setAdapter(categoryAdapter);
+        dbHelper = new DBHelper(this);
 
-        // Cancel button action
-        cancelButton.setOnClickListener(v -> finish());
+        // Set up category selection spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
+                Arrays.asList("Work", "Personal", "Ideas"));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySelection.setAdapter(adapter);
 
-        // Save button action
         saveNoteButton.setOnClickListener(v -> saveNote());
+        cancelButton.setOnClickListener(v -> finish());
     }
 
     private void saveNote() {
@@ -54,15 +51,14 @@ public class NoteCreationActivity extends AppCompatActivity {
             return;
         }
 
-        // Save the note (you might save it to a database or send it back to HomeActivity)
-        // For now, you could use an Intent to return the data to HomeActivity
+        // Save the note to the database
+        dbHelper.insertNote(title, content, category);
 
-        Intent intent = new Intent();
-        intent.putExtra("title", title);
-        intent.putExtra("content", content);
-        intent.putExtra("category", category);
-        setResult(RESULT_OK, intent);
+        // Return result to HomeActivity to indicate the data has changed
+        setResult(RESULT_OK);
+        Toast.makeText(this, "Note saved!", Toast.LENGTH_SHORT).show();
+
+        // Go back to HomeActivity
         finish();
     }
 }
-
