@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+        <color name="purple_500">#6200EE</color>
+        <color name="teal_700">#018786</color>
+
+        <color name="light_sky_blue">#87CEFA</color> <!-- Light Sky Blue -->
+        <color name="light_salmon">#FFA07A</color> <!-- Light Salmon -->
+        <color name="light_coral">#F08080</color> <!-- Light Coral -->
+        <color name="light_turquoise">#AFEEEE</color> <!-- Light Turquoise -->
+        <color name="light_plum">#DDA0DD</color> <!-- Light Plum -->
+        <color name="pale_goldenrod">#EEE8AA</color> <!-- Pale Goldenrod -->
+        <color name="misty_rose">#FFE4E1</color> <!-- Misty Rose -->
+        <color name="honeydew">#F0FFF0</color> <!-- Honeydew -->
+        <color name="azure">#F0FFFF</color> <!-- Azure -->
+        <color name="light_lavender">#E0B0FF</color> <!-- Light Lavender -->
+        <color name="light_rose">#FFCCCB</color> <!-- Light Rose -->
+        <color name="light_spring_green">#00FF7F</color> <!-- Light Spring Green -->
+        <color name="blush">#FFB3C1</color> <!-- Blush -->
+        <color name="pale_turquoise">#AFEEEE</color> <!-- Pale Turquoise -->
+        <color name="wheat">#F5DEB3</color> <!-- Wheat -->
+        <color name="mint_cream">#F5FFFA</color> <!-- Mint Cream -->
+        <color name="light_slate_gray">#778899</color> <!-- Light Slate Gray -->
+        <color name="light_green">#90EE90</color> <!-- Light Green -->
+
+</resources>
